@@ -2,8 +2,8 @@ body{
     margin:0;
     padding:0;
     background-color:#090909;
-
-    align-items: center;
+    font-family: monospace;
+    text-align: center;
 }
 
 
@@ -13,75 +13,90 @@ h3{font-size: 28px;}
 p, a{font-size: 25px;}
 
 
+body, nav a{color: #fff;}
 
 
 
+
+
+
+
+
+
+
+/*common used css codes*/
 header,
-#space{display: flex;}
-
-
-
-header{ flex-direction: row; height:60px; line-height:60px;}
-
-
-header img,
-nav a{margin-left:100px;}
-
-
-#space, nav a{color:#fff;}
-
-
-
-
-nav a{ font-size: 25px; text-decoration: none;}
-
-nav a:hover{color:#654FFF;}
+#space{display: flex; align-items: center;}
 
 
 
 
 
-#space{
-   background-image: url("../images/space.png"); 
-   background-repeat: no-repeat;
-   background-size: cover;
 
-   flex-direction: column;
 
-   align-items: center;
-   text-align: center;
 
-   height:400px;
+
+/*styling the header*/
+header{
+    height:100px;
+    background-color:#000;
+    flex-direction: row;
 }
 
 
-#space img{ height:200px; width:250px;}
-
-#space h1{width:400px;}
-
+#nav-logo,
+nav{margin-left:100px;}
 
 
-#genres{
+
+
+nav a{text-decoration: none; margin:0 20px;}
+
+nav a:hover,
+#active{color:#654FFF;}
+
+
+
+
+
+
+
+
+
+/*Styling the first element in the main element*/
+#space{
+    background-image: url("../images/space.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    flex-direction: column;
+}
+
+#space img{height:200; width:250px;}
+
+
+
+
+
+
+
+
+/*Styling the games section of the main element*/
+#monthly{
+    margin-top:300px;
+    border: solid red;
     display: flex;
     flex-direction: column;
-    text-align: center;
     align-items: center;
-
-    background-color: #000;
-    color: #fff;
 }
 
-#choises{
+.games{
     display: flex;
     flex-direction: row;
-    height:250px;
-    border: solid red;
+    width:1200px;
+    border: solid blue;
+    justify-content: center;
 }
 
-#choises div{
-    margin:0 40px;
-    height:250px;
-    background-color: #000;
-}
+#second{margin-top:100px;}
 
-#choises div h3{margin-top:10px;}
+.box{height:100px; width:100px; border: solid yellow; margin-left:100px;}

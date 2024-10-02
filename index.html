@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <script defer src="index.js"></script>
-    <title>Gamehub.com/home</title>
+    <script defer src="javascript/common.js" type="module"></script>
+
+    <title>Home - Gamehub</title>
     
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -16,11 +17,10 @@
 
 
 <body>
-    <!--Adding a navigationbar-->
     <header>
-        <img src="images/logo.png">
+        <img src="images/logo.png" id="nav-logo">
         <nav>
-            <a href="">Home</a>
+            <a href="" id="active">Home</a>
             <a href="">Market</a>
             <a href="">About us</a>
         </nav>
@@ -37,42 +37,28 @@
             <h1>Welcome to Gamehub the universe of games</h1>
         </div>
 
+        <div id="monthly">
 
+            <h2>Games of the month</h2>
 
-
-
-
-        <div id="genres">
-            <h2>Genres</h2>
-            
-            <div id="choises">
-
-                <div id="horror">
-                    <img src="images/horror.png">
-                    <h3>Horror</h3>
-                </div>
-
-                <div id="adventure">
-                    <img src="images/adventure.png">
-                    <h3>Adventure</h3>
-                </div>
-
-                <div id="action">
-                    <img src="images/action.png">
-                    <h3>Action</h3>
-                </div>
-
-                <div id="kids">
-                    <img src="images/kids.png">
-                    <h3>Kids</h3>
-                </div>
+            <div class="games">
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
             </div>
+
+            <div class="games" id="second">
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+            </div>
+
+
         </div>
-
-
-
-
-
     </main>
 
 </body>
