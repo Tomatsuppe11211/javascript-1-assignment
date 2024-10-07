@@ -5,7 +5,7 @@
 
 
 const pingPong = {
-    id: "pingPong",
+    id: "ded6041a-622f-4fb4-81e4-96fcfdad4dff",
     title: "Ping Pong Championship",
     description: "Enter the world of Ping Pong Championship and compete against the world's best to become the ultimate champion in this exciting game.",
     genre: "Sports",
@@ -14,15 +14,14 @@ const pingPong = {
     price:  14.99,
     discountedPrice: 4.79,
     onSale: true,
-    image:  "https://static.cloud.noroff.dev/api/gamehub/0-ping-pong-championship.jpg",
+    image:  "https://static.noroff.dev/api/gamehub/0-ping-pong-championship.jpg",
     tags: ["gamehub", "game"],
     favorite: true
 };
 
 
-
 const superDuper = {
-    id: "superDuper",
+    id: "2ace4e1d-cad7-4d35-8d59-6c9ac3e3eaf8",
     title: "Super Duper",
     description: "Celebrate some of the world's supe duper Superheroes with augmented reality.",
     genre: "Adventure",
@@ -31,144 +30,150 @@ const superDuper = {
     price:  15.99,
     discountedPrice: 15.99,
     onSale: false,
-    image:  "https://static.cloud.noroff.dev/api/gamehub/1-super-duper.jpg",
+    image:  "https://static.noroff.dev/api/gamehub/1-super-duper.jpg",
     tags: ["gamehub", "game"],
     favorite: true
 };
-
-
-
-const assassin = {
-    id: "assassin",
-    title: "Assassin",
-    description: "Create your own history as an assassin from 1770. Take part of an order trying to prevent the american revolution.",
-    genre: "Adventure",
-    released: "2007",
-    ageRating: "16+",
-    price:  19.99,
-    discountedPrice: 5.50,
-    onSale: true,
-    image: "https://static.cloud.noroff.dev/api/gamehub/1-assassin.jpg",
-    tags: ["gamehub", "game"],
-    favorite: true
-};
-
 
 
 const black = {
-    id: "black",
+    id: "e80df958-5f7f-4c2d-a2df-315134d25b56",
     title: "Black",
-    description: "Join the adventrue of Juan. Juan is a monster hunter andf is looking for Dracula. join Juan's adventure into the darkest night.",
+    description: "Immerse yourself in two distinct single player in the world of sci-fi gaming.",
     genre: "Action",
-    released: "2009",
-    ageRating: "12+",
-    price:  15.99,
-    discountedPrice: 15.99,
-    onSale: false,
-    image: "https://static.cloud.noroff.dev/api/gamehub/1-black.jpg",
-    tags: ["gamehub", "game"],
-    favorite: true
-}
-
-const boxer = {
-    id: "boxer",
-    title: "Boxer",
-    description: "Take place in the ring of legends. Make your own hero and become the next legend in the boxer hall of fame.",
-    genre: "Adventure",
-    released: "2007",
-    ageRating: "16+",
-    price:  12.99,
-    discountedPrice: 12.99,
-    onSale: false,
-    image: "https://static.cloud.noroff.dev/api/gamehub/1-boxer.jpg",
-    tags: ["gamehub", "game"],
-    favorite: true
-}
-
-
-
-const cyberpunk = {
-    id: "cyberpunk",
-    title: "Cyberpunk",
-    description: "Ever dreamt of seeing the future? Your chance is now with this game set in the year 2149. Explore the future and take back controll over your hometown from the agressive robot nation.",
-    genre: "Adventure",
-    released: "2009",
-    ageRating: "16+",
-    price:  18.99,
-    discountedPrice: 5.00,
+    released: "2005",
+    ageRating: "18+",
+    price:  12.49,
+    discountedPrice: 4.79,
     onSale: true,
-    image: "https://static.cloud.noroff.dev/api/gamehub/1-cyberpunk.jpg",
+    image: "https://static.noroff.dev/api/gamehub/2-black.jpg",
     tags: ["gamehub", "game"],
     favorite: true
 }
-
-
-
-const forgeLegend = {
-    id: "forgeLegend",
-    title: "Forge Legend",
-    description: "MAke your magical path with this open world exploration game. Make your powerful character and make your nake known worldwide.",
-    genre: "Adventure",
-    released: "2010",
-    ageRating: "12+",
-    price:  14.99,
-    discountedPrice: 4.99,
-    onSale: true,
-    image: "https://static.cloud.noroff.dev/api/gamehub/1-forge-legend.jpg",
-    tags: ["gamehub", "game"],
-    favorite: true
-}
-
 
 
 const furious = {
-    id: "furious",
+    id: "ba43543f-b1b6-4655-aa99-1b81f8812558",
     title: "Furious",
-    description: "New Yorks famous gorilla Jambi has escaped the zoo and is running wild in the city. Gear up and help get Jambi back to his home.",
-    genre: "Action",
+    description: "Experience the next level virtual gaming with hardcore controls, lethal weapons, customisable and intense firefights.",
+    genre: "horror",
     released: "2004",
-    ageRating: "12+",
-    price:  9.99,
-    discountedPrice: 9.99,
-    onSale: false,
-    image: "https://static.cloud.noroff.dev/api/gamehub/1-furious.jpg",
-    tags: ["gamehub", "game"],
-    favorite: true
-}
-
-
-
-const racing = {
-    id: "racing",
-    title: "Racing",
-    description: "Join the world of formula 1. Becoma a racing legend. beat time records and race against the world most famous racers. Ready, set GO!",
-    genre: "Sports",
-    released: "2008",
-    ageRating: "6+",
+    ageRating: "16+",
     price:  11.99,
-    discountedPrice: 3.99,
+    discountedPrice: 3.69,
     onSale: true,
-    image: "https://static.cloud.noroff.dev/api/gamehub/1-racing.jpg",
+    image: "https://static.noroff.dev/api/gamehub/3-furious.jpg",
     tags: ["gamehub", "game"],
-    favorite: true
+    favorite: false
 }
 
+
+const assassin = {
+    id: "e124e23f-8d25-4057-84b9-8adf6560f155",
+    title: "Assassin",
+    description: "Experience the dramatic conflict of samurai culture and modern weaponry.",
+    genre: "horror",
+    released: "2006",
+    ageRating: "16+",
+    price:  13.49,
+    discountedPrice: 4.79,
+    onSale: true,
+    image: "https://static.noroff.dev/api/gamehub/4-assassin.jpg",
+    tags: ["gamehub", "game"],
+    favorite: false
+};
 
 
 const spaceWar = {
-    id: "spaceWar",
+    id: "26594301-ad8e-4691-a2ca-c774f50b1b21",
     title: "Space War",
-    description: "Explore the space. Join admiral Morgan to the battle of the species. Lead the humanity to triumph and conquest",
+    description: "Battle it out on the Space War and assemble your team in the ultimate online playground.",
     genre: "Action",
-    released: "2014",
+    released: "2008",
     ageRating: "16+",
-    price:  15.99,
-    discountedPrice: 5.99,
+    price:  10.49,
+    discountedPrice: 10.49,
+    onSale: false,
+    image: "https://static.noroff.dev/api/gamehub/5-space-war.jpg",
+    tags: ["gamehub", "game"],
+    favorite: false
+}
+
+
+const racing = {
+    id: "7d1741d2-71d7-4503-9788-3d0403b41a87",
+    title: "Racing",
+    description: "Rev the engines of your race cars in our highly immersive racing game.",
+    genre: "Sports",
+    released: "2008",
+    ageRating: "16+",
+    price:  8.49,
+    discountedPrice: 3.79,
     onSale: true,
-    image: "https://static.cloud.noroff.dev/api/gamehub/1-spacewar.jpg",
+    image: "https://static.noroff.dev/api/gamehub/6-racing.jpg",
+    tags: ["gamehub", "game"],
+    favorite: false
+}
+
+
+const boxer = {
+    id: "14a20cf0-c230-45dd-a47f-7d0e76b73e3f",
+    title: "Boxer",
+    description: "Step into the ring and become the champion of boxing in this thrilling game.",
+    genre: "Sports",
+    released: "2010",
+    ageRating: "12+",
+    price:  19.99,
+    discountedPrice: 19.99,
+    onSale: false,
+    image: "https://static.noroff.dev/api/gamehub/7-boxer.jpg",
+    tags: ["gamehub", "game"],
+    favorite: false
+}
+
+
+const cyberpunk = {
+    id: "cac3b2cd-1611-4007-9883-3adf6f74948f",
+    title: "Cyberpunk",
+    description: "Explore the futuristic world of Cyberpunk and fight against the corrupt system to gain power and freedom.",
+    genre: "Action",
+    released: "2021",
+    ageRating: "18+",
+    price:  59.99,
+    discountedPrice: 49.99,
+    onSale: true,
+    image: "https://static.noroff.dev/api/gamehub/8-cyberpunk.jpg",
     tags: ["gamehub", "game"],
     favorite: true
 }
+
+
+const forgeLegend = {
+    id: "2bbaab8b-57b0-47f6-ab8d-8d443ac767da",
+    title: "Forge Legend",
+    description: "Unleash your inner warrior and become a legend of the forge in this epic adventure.",
+    genre: "Adventure",
+    released: "2018",
+    ageRating: "12+",
+    price:  24.99,
+    discountedPrice: 19.99,
+    onSale: true,
+    image: "https://static.noroff.dev/api/gamehub/9-forge-legend.jpg",
+    tags: ["gamehub", "game"],
+    favorite: true
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -177,7 +182,7 @@ const spaceWar = {
 
 
 //exporting to the main document that will be connected to the main document.
-export const games = [pingPong, superDuper, assassin, black, boxer, cyberpunk, forgeLegend, furious, racing, spaceWar];
+export const games = [pingPong, superDuper, black, furious, assassin, spaceWar, racing, boxer, cyberpunk, forgeLegend];
 
 
 
