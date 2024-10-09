@@ -38,6 +38,3 @@ tellMe().then(
 )
 
 //Result for this is the first box now have the word 'Hello' in it.
-
-
-
