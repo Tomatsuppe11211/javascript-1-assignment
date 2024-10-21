@@ -24,7 +24,7 @@ fetch(apiUrl)
 
 
 
-
+/*
 //tetsing some basic async syntax
 function display(some){
     document.getElementById("first").innerHTML = some;
@@ -38,3 +38,4 @@ tellMe().then(
 )
 
 //Result for this is the first box now have the word 'Hello' in it.
+*/
