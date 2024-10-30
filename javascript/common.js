@@ -1,41 +1,47 @@
 
 
-//This doument is collecting functions and information from every other js documents
-// This is for more controll over what is happening
 
+/*Adding the products from the API*/
+let products = []
 
 //connecting with the API URL:
-const apiUrl = "https://api.noroff.dev/api/v1/gamehub";
+const getGames = async() => {
+    const url = "https://api.noroff.dev/api/v1/gamehub";
+    const data = await fetch(url)
+    const json = await data.json()
 
+    products = json
+    
 
+    /*fetching games for each rows and adding them to the page*/
+    const firstRow = document.getElementById("section-1")
+    const secondRow = document.getElementById("section-2")
 
+    for (let i = 0; i < 5; i++){
+        const gameImage = document.createElement("img")
 
+        gameImage.src = products[i].image
+        gameImage.onclick = function() {window.location.href = "product/index.html"}
 
+        firstRow.appendChild(gameImage)
 
-//Importing game information
-import{games} from'./products.js';
-// Control check = working this far.
+        console.log(products[i].title) 
+    }
 
+    
+    for (let i = 5; i < 10; i++){
+        const gameImage = document.createElement("img")
 
+        gameImage.src = products[i].image
+        gameImage.onclick = function() {window.location.href = "product/index.html"}
 
+        secondRow.appendChild(gameImage)
 
-fetch(apiUrl)
+        console.log(products[i].title) 
+    }
 
-
-
-
-/*
-//tetsing some basic async syntax
-function display(some){
-    document.getElementById("first").innerHTML = some;
 }
 
-async function tellMe(){return("Hello");}
+getGames()
 
-tellMe().then(
-    function(value) {display(value);},
-    function(error) {display(error);}
-)
 
-//Result for this is the first box now have the word 'Hello' in it.
-*/

@@ -76,32 +76,27 @@ nav a:hover,
 
 
 
+h2{margin-top:100px;}
 
-
-
-
-/*Styling the games section of the main element*/
-#monthly{
-    margin-top:300px;
-    border: solid red;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.games{
+/*Changing the games rows*/
+section{
     display: flex;
     flex-direction: row;
-    border: solid blue;
     justify-content: center;
-    margin-top:100px;
+    margin-top:50px;
+}
+
+section img{
+    height: 250px;
+    margin:0 50px;
 }
 
 
 
-.box{
-    height:300px; 
-    width:200px; 
-    border: solid yellow;
-    margin:0 50px;
+
+/*Making the footer*/
+footer{
+    background-color:#000;
+    height:200px;
+    margin-top:100px
 }
