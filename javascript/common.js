@@ -21,9 +21,26 @@ const getGames = async() => {
         const gameImage = document.createElement("img")
 
         gameImage.src = products[i].image
-        gameImage.onclick = function() {window.location.href = "product/index.html"}
-
+        
+        /*Adding the images to the page*/
         firstRow.appendChild(gameImage)
+
+
+        /*Preparing for adding content to the product page*/
+        const gameInfo = document.getElementById("gameInfo")
+        
+        /**/
+        gameImage.onclick = function() {
+            /*window.location.href = "product/index.html"*/
+            const gameTitle = products[i].title
+            const gameDescription = products[i].description
+            const gamePrice = products[i].price
+
+            if(products[i].onSale == true){console.log("SALE!")} else {console.log("Not on sale")}
+
+        }
+        
+
 
         console.log(products[i].title) 
     }
@@ -40,6 +57,9 @@ const getGames = async() => {
         console.log(products[i].title) 
     }
 
+
+
+    
 }
 
 getGames()
