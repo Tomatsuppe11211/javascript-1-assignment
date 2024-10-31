@@ -17,6 +17,8 @@ const getGames = async() => {
     const firstRow = document.getElementById("section-1")
     const secondRow = document.getElementById("section-2")
 
+
+    /*Adding the first row of games*/
     for (let i = 0; i < 5; i++){
         const gameImage = document.createElement("img")
 
@@ -24,42 +26,30 @@ const getGames = async() => {
         
         /*Adding the images to the page*/
         firstRow.appendChild(gameImage)
-
-
-        /*Preparing for adding content to the product page*/
-        const gameInfo = document.getElementById("gameInfo")
         
-        /**/
+        
+        /*Makeing each image send the user to the product page*/
         gameImage.onclick = function() {
             /*window.location.href = "product/index.html"*/
-            const gameTitle = products[i].title
-            const gameDescription = products[i].description
-            const gamePrice = products[i].price
-
-            if(products[i].onSale == true){console.log("SALE!")} else {console.log("Not on sale")}
-
-        }
-        
-
-
-        console.log(products[i].title) 
+        }   
     }
 
     
+    /*Adding the second row of games*/
     for (let i = 5; i < 10; i++){
         const gameImage = document.createElement("img")
 
         gameImage.src = products[i].image
-        gameImage.onclick = function() {window.location.href = "product/index.html"}
 
+        /*Adding images to the page*/
         secondRow.appendChild(gameImage)
 
-        console.log(products[i].title) 
+        /*Makeing each image send the user to the product page*/
+        gameImage.onclick = function() {
+            /*window.location.href = "product/index.html"*/
+        }
     }
 
-
-
-    
 }
 
 getGames()
