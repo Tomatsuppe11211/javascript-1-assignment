@@ -20,44 +20,43 @@ body, nav a{color: #fff;}
 
 
 
-
-
-
-
 /*common used css codes*/
+body,
 header,
-#space{display: flex; align-items: center;}
+#space,
+section,
+main{display: flex;}
 
 
+body,
+main,
+#space{flex-direction: column;}
 
 
+header,
+#space,
+section{align-items: center;}
 
 
+header,
+section{flex-direction: row;}
 
+
+main{border: solid red;justify-content: center;}
 
 
 /*styling the header*/
-header{
-    height:100px;
-    background-color:#000;
-    flex-direction: row;
-}
+header{height:100px; background-color:#000;}
 
 
-#nav-logo,
-nav{margin-left:100px;}
+#nav-logo, nav{margin-left:100px;}
 
 
 
 
 nav a{text-decoration: none; margin:0 20px;}
 
-nav a:hover,
-#active{color:#654FFF;}
-
-
-
-
+nav a:hover, #active{color:#654FFF;}
 
 
 
@@ -68,7 +67,6 @@ nav a:hover,
     background-image: url("../images/space.png");
     background-repeat: no-repeat;
     background-size: cover;
-    flex-direction: column;
 }
 
 #space img{height:200; width:250px;}
@@ -78,18 +76,44 @@ nav a:hover,
 
 h2{margin-top:100px;}
 
-/*Changing the games rows*/
-section{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+section{justify-content: center; margin-top:50px;}
+
+section img{height: 250px; margin:0 50px;}
+
+
+
+
+
+/*Making style adjustments on the product page*/
+
+#gameInfo{
+    border: solid yellow;
+    height:400px;
+    width:1000px;
+    margin-left:450px;
     margin-top:50px;
+    justify-content: left;
+    text-align: left;
+    background-color: #000;
 }
 
-section img{
-    height: 250px;
-    margin:0 50px;
+#gameInfo img{height:300px; width:250px;}
+
+#gameInfo div{margin-top:-100px;}
+
+#add-button{
+    font-size:16px;
+    padding: 10px;
+    border-radius: 50px;
+    background-color:#654FFF;
+    color:#FFF;
 }
+
+#add-button:hover{background-color: #000;}
+
+
+
+
 
 
 
