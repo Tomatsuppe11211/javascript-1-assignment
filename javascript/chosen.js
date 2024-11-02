@@ -22,9 +22,6 @@ const showGame = async() => {
     const title = window.sessionStorage.getItem("title")
     const description = window.sessionStorage.getItem("description")
     const price = window.sessionStorage.getItem("price")
-    const onSale = window.sessionStorage.getItem("onSale")
-
-    console.log(onSale)
 
 
     gameTitle.innerHTML = title
@@ -33,30 +30,36 @@ const showGame = async() => {
 
 
     gamePrice.innerHTML = "Price: " + price + " $"
-}
+    
+    /*Adding a function to the button*/
+    const button = document.getElementById("add-button")
+    button.addEventListener("click", addProduct)
 
-
-
-
-
-
-/*Adding a function to the button*/
-const button = document.getElementById("add-button")
-button.addEventListener("click", addProduct)
-
-function addProduct(){
+    function addProduct(){
     console.log("Game added")
     button.removeEventListener("click", addProduct)
-    button.innerHTML = "Remove from cart"
-    button.addEventListener("click", removeProduct)
+    gamePrice.innerHTML = "Product added to cart"
 
-    function removeProduct(){
-        button.removeEventListener("click", removeProduct)
-        console.log("Game removed")
-        button.addEventListener("click", addProduct)
-        button.innerHTML = "Add to cart"
-    }
+    button.innerHTML = "Go to Cart"
+
+
+
+    /*Sending information about the game to the cart*/
+    const thisGame = [image, title, price]
+    let sendGame = window.sessionStorage.setItem("product", thisGame)
+
+
+    /*Sending the user to the cart*/
+    button.onclick = function(){window.location.href="../checkout/index.html"}
 }
+}
+
+
+
+
+
+
+
 
 
 

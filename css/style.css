@@ -10,10 +10,11 @@ body{
 h1{font-size: 35px;}
 h2{font-size: 32px;}
 h3{font-size: 28px;}
-p, a{font-size: 25px;}
+p, a, i,
+#displayCart div{font-size: 25px;}
 
 
-body, nav a{color: #fff;}
+body, nav a, #backLink{color: #fff;}
 
 
 
@@ -35,14 +36,13 @@ main,
 
 header,
 #space,
+main,
 section{align-items: center;}
 
 
 header,
 section{flex-direction: row;}
 
-
-main{border: solid red;justify-content: center;}
 
 
 /*styling the header*/
@@ -54,9 +54,13 @@ header{height:100px; background-color:#000;}
 
 
 
-nav a{text-decoration: none; margin:0 20px;}
+nav a{margin:0 20px;}
 
-nav a:hover, #active{color:#654FFF;}
+nav a, #backLink{text-decoration: none;}
+
+nav a:hover,
+#active,
+#backButton:hover{color:#654FFF;}
 
 
 
@@ -84,15 +88,27 @@ section img{height: 250px; margin:0 50px;}
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*Making style adjustments on the product page*/
 
 #gameInfo{
-    border: solid yellow;
     height:400px;
     width:1000px;
-    margin-left:450px;
     margin-top:50px;
-    justify-content: left;
     text-align: left;
     background-color: #000;
 }
@@ -112,6 +128,50 @@ section img{height: 250px; margin:0 50px;}
 #add-button:hover{background-color: #000;}
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*Styling the checkout page*/
+#displayCart{
+    width:1000px;
+    margin-top:20px;
+    background-color: #000;
+}
+
+#displayCart h2{
+    border-bottom: 2px solid #654FFF; 
+    margin-top:0px;
+    line-height: 60px;
+}
+
+#backButton{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#backButton p{margin-left:20px;}
+
+#backLink{margin-left:-900px; margin-top:100px;}
 
 
 

@@ -56,16 +56,12 @@ const getGames = async() => {
                     window.sessionStorage.setItem("image", products[i].image)
                     window.sessionStorage.setItem("description", products[i].description)
                     window.sessionStorage.setItem("price", price)
-                    alert("You clicked on " + products[i].title + "! This game is on sale!")
-                    console.log(price)
                     window.location.href = "product/index.html"
                 } else {
                     window.sessionStorage.setItem("title", products[i].title)
                     window.sessionStorage.setItem("image", products[i].image)
                     window.sessionStorage.setItem("description", products[i].description)
                     window.sessionStorage.setItem("price", products[i].price)
-                    alert("You clicked on " + products[i].title + "! This game is not on sale!")
-                    console.log(products[i].price)
                     window.location.href = "product/index.html"
                 }    
             } else{

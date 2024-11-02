@@ -3,16 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gamehub - Checkout</title>
 
-    <script defer src="../javascript/chosen.js" type="module"></script>
+    <link rel="stylesheet" href="../css/style.css">
 
+    <script defer href="../checkout/checkout.js" type="module"></script>
+    
     <!--Adding icons from fontAwsome-->
     <script src="https://kit.fontawesome.com/8908c40066.js" crossorigin="anonymous"></script>
-
-    <title>Home - Gamehub</title>
-    
-    <link rel="stylesheet" href="../css/style.css">
 </head>
+
+
+
 
 
 <body>
@@ -22,8 +24,9 @@
             <a href="../index.html">Home</a>
             <a href="">Market</a>
             <a href="">About us</a>
-        </nav>
+        </nav> 
     </header>
+
 
     <div id="space">
         <img src="../images/big-logo.png">
@@ -31,33 +34,23 @@
     </div>
 
 
-
-
-
-
-
     <main>
-
-        <a href="../index.html" id="backLink">
+        <a href="../product/index.html" id="backLink">
             <div id="backButton">
                 <i class="fa-solid fa-arrow-left"></i>
                 <p>Go back</p>
             </div>
         </a>
-
-        <section id="gameInfo">
-            <img alt="Game image" id="gameImage">
-            <div>
-                <h2 id="gameTitle">Game Title</h2>
-                <p id="gameDescription"> Game description</p>
-                <p id="gamePrice">Price: </p>
-                <button id="add-button">Add to cart</button>
-            </div>
-        </section>
-
+        
+        
+        <div id="displayCart">
+           <h2>My cart</h2>
+            <div>Sorry, but yur cart is empty</div> 
+        </div>
+        
     </main>
 
 
-    
+
 </body>
 </html>
