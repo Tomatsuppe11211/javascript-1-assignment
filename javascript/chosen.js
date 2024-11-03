@@ -1,5 +1,7 @@
 let products = []
 
+let thisCart = []
+
 const showGame = async() => {
     const url = "https://api.noroff.dev/api/v1/gamehub";
     const data = await fetch(url)
@@ -36,40 +38,27 @@ const showGame = async() => {
     button.addEventListener("click", addProduct)
 
     function addProduct(){
-    console.log("Game added")
-    button.removeEventListener("click", addProduct)
-    gamePrice.innerHTML = "Product added to cart"
+        console.log("Game added")
+        button.removeEventListener("click", addProduct)
+        button.innerHTML = "Remove from Cart"
+        button.addEventListener("click", romoveProduct)
+        gamePrice.innerHTML = "Game added to your cart"
 
-    button.innerHTML = "Go to Cart"
+        function romoveProduct(){
+            console.log("Game removed")
+            button.removeEventListener("click", romoveProduct)
+            button.innerHTML = "Add to cart"
+            gamePrice.innerHTML = "Price: " + price + " $"
+            button.addEventListener("click", addProduct)
+        }
 
 
-
-    /*Sending information about the game to the cart*/
-    const thisGame = [image, title, price]
-    let sendGame = window.sessionStorage.setItem("product", thisGame)
-
-
-    /*Sending the user to the cart*/
-    button.onclick = function(){window.location.href="../checkout/index.html"}
+        /*Sending information about the game to the cart*/
+        const sendImage = window.sessionStorage.setItem("image", image)
+        const sendTitle = window.sessionStorage.setItem("title", title)
+        const sendPrice = window.sessionStorage.setItem("price", price)
+    }
 }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 showGame()

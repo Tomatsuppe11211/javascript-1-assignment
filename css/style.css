@@ -4,19 +4,17 @@ body{
     background-color:#090909;
     font-family: monospace;
     text-align: center;
+    
 }
 
 
 h1{font-size: 35px;}
 h2{font-size: 32px;}
 h3{font-size: 28px;}
-p, a, i,
-#displayCart div{font-size: 25px;}
+p, a, i, #displayCart div{font-size: 25px;}
 
 
-body, nav a, #backLink{color: #fff;}
-
-
+body, nav a{color: #fff;}
 
 
 
@@ -56,11 +54,10 @@ header{height:100px; background-color:#000;}
 
 nav a{margin:0 20px;}
 
-nav a, #backLink{text-decoration: none;}
+nav a {text-decoration: none;}
 
 nav a:hover,
-#active,
-#backButton:hover{color:#654FFF;}
+#active{color:#654FFF;}
 
 
 
@@ -80,9 +77,57 @@ nav a:hover,
 
 h2{margin-top:100px;}
 
-section{justify-content: center; margin-top:50px;}
 
-section img{height: 250px; margin:0 50px;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*Home page*/
+#section-1{
+    width:1400px;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+#section-1 img{
+    height:200px;
+    width:150px;
+    margin:20px 50px;
+}
+
+select, #sortButton{
+    font-size: 20px;
+    color: #654FFF;
+    background-color:#303030;
+}
+
+#sortButton{margin-left:50px;}
+
+
+
+
 
 
 
@@ -111,11 +156,12 @@ section img{height: 250px; margin:0 50px;}
     margin-top:50px;
     text-align: left;
     background-color: #000;
+    padding: 30px;
 }
 
 #gameInfo img{height:300px; width:250px;}
 
-#gameInfo div{margin-top:-100px;}
+#gameInfo div{margin-top:-100px; margin-left:40px;}
 
 #add-button{
     font-size:16px;
@@ -153,8 +199,12 @@ section img{height: 250px; margin:0 50px;}
 /*Styling the checkout page*/
 #displayCart{
     width:1000px;
-    margin-top:20px;
+    margin-top:100px;
     background-color: #000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px; 
 }
 
 #displayCart h2{
@@ -163,15 +213,55 @@ section img{height: 250px; margin:0 50px;}
     line-height: 60px;
 }
 
-#backButton{
+#cartItem{
     display: flex;
     flex-direction: row;
+    width:500px;
+    border-bottom: solid white;
+    margin-top:20px; 
     align-items: center;
 }
 
-#backButton p{margin-left:20px;}
+#cartItem i{margin-left:50px; font-size: 30px;}
+#cartItem i:hover{color: #ff0000;}
 
-#backLink{margin-left:-900px; margin-top:100px;}
+#items img{height:200px; width:150px;}
+
+#gameInformation{
+    text-align: left;
+    padding: 0 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*Confirmation page*/
+#confirmation{
+    background-color:#000;
+    padding:30px; 
+    margin-top: 100px;
+    width: 1200px;
+    flex-direction: column;
+}
+
+#confirmation h2{margin-top:0px;}
+
+#confirmation button{
+    font-size: 20px;
+    color:#654FFF;
+    background-color:#303030;
+}
+
+
 
 
 
