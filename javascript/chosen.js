@@ -1,64 +1,119 @@
-let products = []
 
-let thisCart = []
-
-const showGame = async() => {
-    const url = "https://api.noroff.dev/api/v1/gamehub";
-    const data = await fetch(url)
-    const json = await data.json()
-
-    products = json
- 
-    
-
-    /*marking elements on the page that is to be changed when i click on them on the first index page*/
-    const gameImage = document.getElementById("gameImage")
-    const gameTitle = document.getElementById("gameTitle")
-    const gameDescription = document.getElementById("gameDescription")
-    const gamePrice = document.getElementById("gamePrice")
-    
+let addedProduct = []
+let productCount = 0
 
 
-    /*retrieving items from last page*/
-    const image = window.sessionStorage.getItem("image")
-    const title = window.sessionStorage.getItem("title")
-    const description = window.sessionStorage.getItem("description")
-    const price = window.sessionStorage.getItem("price")
+/*marking elements on the page that is to be changed when i click on them on the first index page*/
+const productDiv = document.getElementById("gameInfo")
+const gameImage = document.getElementById("gameImage")
+const gameTitle = document.getElementById("gameTitle")
+const gameDescription = document.getElementById("gameDescription")
+const gamePrice = document.getElementById("gamePrice")
 
 
-    gameTitle.innerHTML = title
-    gameDescription.innerHTML = description
-    gameImage.src = image
-
-
-    gamePrice.innerHTML = "Price: " + price + " $"
-    
-    /*Adding a function to the button*/
-    const button = document.getElementById("add-button")
-    button.addEventListener("click", addProduct)
-
-    function addProduct(){
-        console.log("Game added")
-        button.removeEventListener("click", addProduct)
-        button.innerHTML = "Remove from Cart"
-        button.addEventListener("click", romoveProduct)
-        gamePrice.innerHTML = "Game added to your cart"
-
-        function romoveProduct(){
-            console.log("Game removed")
-            button.removeEventListener("click", romoveProduct)
-            button.innerHTML = "Add to cart"
-            gamePrice.innerHTML = "Price: " + price + " $"
-            button.addEventListener("click", addProduct)
-        }
-
-
-        /*Sending information about the game to the cart*/
-        const sendImage = window.sessionStorage.setItem("image", image)
-        const sendTitle = window.sessionStorage.setItem("title", title)
-        const sendPrice = window.sessionStorage.setItem("price", price)
+const homeButton = document.getElementById("sendHome")
+homeButton.onclick = function(){
+    if(productCount > 0){
+        alert(sent.name + " is added")
+        sessionStorage.setItem("product", JSON.stringify(addedProduct))
+    } else {
+        alert("No game is added")
+        sessionStorage.clear()
     }
+
+    window.location.href="../index.html"
+}
+
+const cartButton = document.getElementById("sendCart")
+cartButton.onclick = function(){
+    if(productCount > 0){
+        alert(sent.name + " is added")
+        sessionStorage.setItem("product", JSON.stringify(addedProduct))
+    } else {
+        alert("No game is added")
+        sessionStorage.clear()
+    }
+
+    window.location.href="../checkout/index.html"
+}  
+
+
+
+
+
+
+/*retrieving items from last page*/ 
+let sent = JSON.parse(sessionStorage.getItem("see"))
+console.log(sent)
+
+
+const pageTitle = document.getElementById("productPage")
+pageTitle.innerHTML = "Purchase " + sent.name 
+
+let productPrice = 0
+
+if(sent.sale == true){
+    productPrice = sent.price - sent.discount
+    console.log(productPrice)
+} else {
+    productPrice = sent.price
+    console.log(productPrice)
 }
 
 
-showGame()
+
+
+
+
+
+
+/*Adding the product to the page*/
+gameImage.src = sent.image
+gameTitle.innerHTML = sent.name
+gameDescription.innerHTML = sent.description
+gamePrice.innerHTML = "Price: " + productPrice + " $"
+
+
+
+
+
+
+
+
+
+// Adding game if clicked
+const button = document.createElement("button")
+button.id = "add-button"
+button.innerHTML = "Add to cart"
+productDiv.appendChild(button)
+
+button.onclick = function(){
+    const addProduct = {
+        name: sent.name,
+        price: productPrice,
+        image: sent.image,
+        added: true
+    }
+
+    productCount += 1
+    const newButton = document.createElement("button")
+    newButton.id = "add-button"
+    newButton.innerHTML = "Remove from cart"
+    gamePrice.innerHTML = "Added to cart for " + productPrice + " $"
+    productDiv.appendChild(newButton)
+    addedProduct.push(addProduct)
+    button.remove()
+    console.log(addedProduct)
+
+
+    //removing game if clicked
+    newButton.onclick = function(){
+        productCount -= 1
+        addedProduct.pop(addProduct)
+        newButton.remove()
+        productDiv.appendChild(button)
+        gamePrice.innerHTML = "Price: " + productPrice + " $"
+        console.log(addedProduct)
+    }
+
+}

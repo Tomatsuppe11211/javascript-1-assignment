@@ -4,6 +4,9 @@
 /*Adding the products from the API*/
 let products = []
 
+/*Sending information about the chosen product to the product page*/
+let seeProduct = []
+
 //connecting with the API URL:
 const getGames = async() => {
     const url = "https://api.noroff.dev/api/v1/gamehub";
@@ -16,8 +19,6 @@ const getGames = async() => {
 
     /*adding elements from the HTML file*/
     const firstRow = document.getElementById("section-1")
-    const selection = document.getElementById("filter")
-    const filterButton = document.getElementById("sortButton")
 
 
     /*collecting games and displaying them. making sure not to repeat games multiple times*/
@@ -28,39 +29,24 @@ const getGames = async() => {
         gameImage.src = products[i].image
 
         /*Adding the images to the page*/
-        firstRow.appendChild(gameImage)
-        
-        
-        
-                
-
-
+        firstRow.appendChild(gameImage)        
 
 
 
         /*Making each image send the user to the product page*/
         gameImage.onclick = function() {
-            /*storing the data to the clicked product. Sending them to the product page*/
-            if(products[i].title == products[i].title){
-                if(products[i].onSale == true){
-                    
-                    const price = products[i].price - products[i].discountedPrice
-                    
-                    sessionStorage.setItem("title", products[i].title)
-                    sessionStorage.setItem("image", products[i].image)
-                    sessionStorage.setItem("description", products[i].description)
-                    sessionStorage.setItem("price", price)
-                    window.location.href = "product/index.html"
-                } else {
-                    sessionStorage.setItem("title", products[i].title)
-                    sessionStorage.setItem("image", products[i].image)
-                    sessionStorage.setItem("description", products[i].description)
-                    sessionStorage.setItem("price", products[i].price)
-                    window.location.href = "product/index.html"
-                }    
-            } else{
-                alert("Sorry but this item is not available")
-            }  
+            const chosenProduct = {
+                name: products[i].title, 
+                price: products[i].price,
+                description: products[i].description,
+                image: products[i].image,
+                sale: products[i].onSale,
+                discount: products[i].discountedPrice
+            }
+
+            seeProduct.push(chosenProduct)
+            sessionStorage.setItem("see", JSON.stringify(chosenProduct))
+            window.location.href="product/index.html" 
         }         
     }
 }

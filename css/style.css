@@ -117,13 +117,11 @@ h2{margin-top:100px;}
     margin:20px 50px;
 }
 
-select, #sortButton{
+select{
     font-size: 20px;
     color: #654FFF;
     background-color:#303030;
 }
-
-#sortButton{margin-left:50px;}
 
 
 
@@ -167,11 +165,15 @@ select, #sortButton{
     font-size:16px;
     padding: 10px;
     border-radius: 50px;
-    background-color:#654FFF;
-    color:#FFF;
+    background-color:#d68203;
+    color: #fff;
+    font-weight: bold;
+    position: absolute;
+    margin-left:275px;
+    margin-top:250px;
 }
 
-#add-button:hover{background-color: #000;}
+#add-button:hover{background-color: #654FFF;}
 
 
 
