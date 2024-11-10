@@ -215,23 +215,31 @@ select{
     line-height: 60px;
 }
 
-#cartItem{
+.cartInfo{
     display: flex;
     flex-direction: row;
-    width:500px;
-    border-bottom: solid white;
-    margin-top:20px; 
+    border: solid red;
     align-items: center;
+    width:500px;
+    height:200px;
 }
 
-#cartItem i{margin-left:50px; font-size: 30px;}
-#cartItem i:hover{color: #ff0000;}
+.cartInfo i{ margin-left:20px;}
 
-#items img{height:200px; width:150px;}
+#displayCart img{
+    height: 200px;
+    width: 150px;
+    border: solid white;
+}
 
-#gameInformation{
+.product{
+    display: flex;
+    flex-direction: column;
+    margin-left:20px;
+    border: solid white;
+    height:200px;
+    width:200px;
     text-align: left;
-    padding: 0 20px;
 }
 
 

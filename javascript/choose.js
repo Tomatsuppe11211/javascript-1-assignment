@@ -1,4 +1,7 @@
 
+/*getting added products*/
+const addedProducts = JSON.parse(localStorage.getItem("products"))
+if(addedProducts != null){console.log(addedProducts)}
 
 
 /*Adding the products from the API*/

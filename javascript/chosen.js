@@ -1,80 +1,71 @@
 
-let addedProduct = []
-let productCount = 0
 
+let sendProducts = []
 
-/*marking elements on the page that is to be changed when i click on them on the first index page*/
-const productDiv = document.getElementById("gameInfo")
-const gameImage = document.getElementById("gameImage")
-const gameTitle = document.getElementById("gameTitle")
-const gameDescription = document.getElementById("gameDescription")
-const gamePrice = document.getElementById("gamePrice")
+/*getting added products*/
+const addedProducts = JSON.parse(localStorage.getItem("products"))
 
-
-const homeButton = document.getElementById("sendHome")
-homeButton.onclick = function(){
-    if(productCount > 0){
-        alert(sent.name + " is added")
-        sessionStorage.setItem("product", JSON.stringify(addedProduct))
-    } else {
-        alert("No game is added")
-        sessionStorage.clear()
+if(addedProducts != null){
+    for(let i = 0; i < addedProducts.length; i++){
+        sendProducts.push(addedProducts[i])
     }
 
-    window.location.href="../index.html"
+console.log(sendProducts)
 }
 
-const cartButton = document.getElementById("sendCart")
-cartButton.onclick = function(){
-    if(productCount > 0){
-        alert(sent.name + " is added")
-        sessionStorage.setItem("product", JSON.stringify(addedProduct))
-    } else {
-        alert("No game is added")
-        sessionStorage.clear()
-    }
-
-    window.location.href="../checkout/index.html"
-}  
 
 
-
-
-
-
-/*retrieving items from last page*/ 
+/*retrieving items from home page*/ 
 let sent = JSON.parse(sessionStorage.getItem("see"))
-console.log(sent)
 
 
+
+/*Changing the page's title*/
 const pageTitle = document.getElementById("productPage")
 pageTitle.innerHTML = "Purchase " + sent.name 
 
-let productPrice = 0
-
-if(sent.sale == true){
-    productPrice = sent.price - sent.discount
-    console.log(productPrice)
-} else {
-    productPrice = sent.price
-    console.log(productPrice)
-}
 
 
 
+/*Retrieving the clicked prduct from index.html*/
+const gameSection = document.getElementById("gameInfo")
+
+const gameImage = document.createElement("img")
+    gameImage.src = sent.image
+
+const gameDiv = document.createElement("div")
+
+const gameTitle = document.createElement("h2")
+    gameTitle.id = "gameTitle"
+    gameTitle.innerHTML = sent.name
+
+const gameDescription = document.createElement("p")
+    gameDescription.id = "gameDescription"
+    gameDescription.innerHTML = sent.description
+
+const gamePrice = document.createElement("p")
+    gamePrice.id = "gamePrice"
+
+
+    let productPrice = 0
+
+    if(sent.sale == true){productPrice = sent.discount} else {productPrice = sent.price}
+
+
+    gamePrice.innerHTML = "Price: " + productPrice + " $"
 
 
 
 
 
-/*Adding the product to the page*/
-gameImage.src = sent.image
-gameTitle.innerHTML = sent.name
-gameDescription.innerHTML = sent.description
-gamePrice.innerHTML = "Price: " + productPrice + " $"
 
+/*Displaying the chosen product*/
+gameSection.appendChild(gameImage)
+gameSection.appendChild(gameDiv)
 
-
+gameDiv.appendChild(gameTitle)
+gameDiv.appendChild(gameDescription)
+gameDiv.appendChild(gamePrice)
 
 
 
@@ -85,35 +76,31 @@ gamePrice.innerHTML = "Price: " + productPrice + " $"
 const button = document.createElement("button")
 button.id = "add-button"
 button.innerHTML = "Add to cart"
-productDiv.appendChild(button)
+gameSection.appendChild(button)
+
+
 
 button.onclick = function(){
-    const addProduct = {
-        name: sent.name,
-        price: productPrice,
-        image: sent.image,
-        added: true
-    }
-
-    productCount += 1
+    sendProducts.push(sent)
     const newButton = document.createElement("button")
     newButton.id = "add-button"
     newButton.innerHTML = "Remove from cart"
     gamePrice.innerHTML = "Added to cart for " + productPrice + " $"
-    productDiv.appendChild(newButton)
-    addedProduct.push(addProduct)
+    gameSection.appendChild(newButton)
     button.remove()
-    console.log(addedProduct)
 
+
+    localStorage.setItem("products", JSON.stringify(sendProducts))
+    console.log(sendProducts)
 
     //removing game if clicked
     newButton.onclick = function(){
-        productCount -= 1
-        addedProduct.pop(addProduct)
+        sendProducts.pop(sent)
+        console.log(sendProducts)
         newButton.remove()
-        productDiv.appendChild(button)
+        gameSection.appendChild(button)
         gamePrice.innerHTML = "Price: " + productPrice + " $"
-        console.log(addedProduct)
     }
-
+    
 }
+
