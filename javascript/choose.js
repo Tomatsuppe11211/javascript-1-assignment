@@ -10,6 +10,8 @@ let products = []
 /*Sending information about the chosen product to the product page*/
 let seeProduct = []
 
+//-------------------------------------------------------------------------------------------------------------
+
 //connecting with the API URL:
 const getGames = async() => {
     const url = "https://api.noroff.dev/api/v1/gamehub";
@@ -19,41 +21,69 @@ const getGames = async() => {
     products = json
 
 
-
+//--------------------------------------------------------------------------------------------------------------
     /*adding elements from the HTML file*/
-    const firstRow = document.getElementById("section-1")
-
-
-    /*collecting games and displaying them. making sure not to repeat games multiple times*/
-    for (let i = 0; i < products.length; i++){
-        const gameImage = document.createElement("img")
-
-        //Adding game images on the home page
-        gameImage.src = products[i].image
-
-        /*Adding the images to the page*/
-        firstRow.appendChild(gameImage)        
+    const rows = document.getElementById("section-1")
 
 
 
-        /*Making each image send the user to the product page*/
-        gameImage.onclick = function() {
-            const chosenProduct = {
-                name: products[i].title, 
-                price: products[i].price,
-                description: products[i].description,
-                image: products[i].image,
-                sale: products[i].onSale,
-                discount: products[i].discountedPrice
-            }
+    // getting checkboxes
+    const sportCheck = document.getElementById("sports")
+    const adventureCheck = document.getElementById("adventure")   
+    const actionCheck = document.getElementById("action")
+    const horrorCheck = document.getElementById("horror")
 
-            seeProduct.push(chosenProduct)
-            sessionStorage.setItem("see", JSON.stringify(chosenProduct))
-            window.location.href="product/index.html" 
-        }         
-    }
+    
+
+
+//-------------------------------------------------------------------------------------------------------------
+
+//function for sending the user to the product page
+function sendToProductPage() {
+        const chosenProduct = products[i]
+        console.log(chosenProduct)
+
+        seeProduct.push(chosenProduct)
+        sessionStorage.setItem("see", JSON.stringify(chosenProduct))
+        window.location.href="product/index.html" 
+        }    
+
+
+
+
+
+//---------------------------------------------------------------------------------------------------------------    
+
+sportCheck.onclick = function(){
+    if (sportCheck.checked == true){
+        for (let i = 0; i < products.length; i++){
+          if(products[i].genre == "Sports"){
+                const gameImage = document.createElement("img")
+                gameImage.src = products[i].image
+                rows.appendChild(gameImage)
+            }  
+        }
+    } else if (adventureCheck.checked == true){
+        for (let i = 0; i < products.length; i++){
+            if(products[i].genre == "Adventure"){
+                  const gameImage = document.createElement("img")
+                  gameImage.src = products[i].image
+                  rows.appendChild(gameImage)
+                  console.log("Adventure!")
+              }  
+          }
+    }  
 }
 
+
+
+
+
+
+
+
+
+}
 getGames()
 
 

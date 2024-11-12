@@ -4,21 +4,21 @@
 let cart = JSON.parse(localStorage.getItem("products"))
 
 
-/*Creating a message for the user if no products are detevted*/
-
-
-
 let sum = 0;
 
 
 /*Marking where i want to put the users products*/
 const cartSection = document.getElementById("displayCart")
 
+
+/*Creating a message for the user if no products are detected*/
 function message(){
     const message = document.createElement("p")
     message.innerHTML = "There are no products in your cart"
     cartSection.appendChild(message)  
 }
+
+
 
 
 
@@ -57,33 +57,22 @@ if (cart.length != null){
         //Removing items from cart
         trashIcon.onclick = function() {
             console.log(cart[i].name + " removed")
-            delete cart[i]
+            cart[0] = cart[i]
+            cart.shift()
 
-            if(cart[i] == "empty"){
-                cart[i] = cart[0]
-                cart.shift()    
-            }
-            
             console.log(cart)
-            
-            list.remove()
 
             //localStorage.clear("products")
             //localStorage.setItem("products", JSON.stringify(cart))
-            
-            
         }
 
     }
 
     console.log(sum.toFixed(2))
 
-
-
 } else {
     message()
 }
-
 
 
 
