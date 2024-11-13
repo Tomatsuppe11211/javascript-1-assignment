@@ -34,7 +34,12 @@ const getGames = async() => {
     const horrorCheck = document.getElementById("horror")
 
     
-
+//-------------------------------------------------------------------------------------------------------------
+    for (let i = 0; i < products.length; i++){
+        const gameImage = document.createElement("img")
+                gameImage.src = products[i].image
+                rows.append(gameImage)
+    }
 
 //-------------------------------------------------------------------------------------------------------------
 
@@ -48,41 +53,18 @@ function sendToProductPage() {
         window.location.href="product/index.html" 
         }    
 
-
-
-
-
 //---------------------------------------------------------------------------------------------------------------    
 
-sportCheck.onclick = function(){
+sportCheck.onclick = function(){ 
     if (sportCheck.checked == true){
+        products.sort()
         for (let i = 0; i < products.length; i++){
-          if(products[i].genre == "Sports"){
-                const gameImage = document.createElement("img")
-                gameImage.src = products[i].image
-                rows.appendChild(gameImage)
-            }  
+           console.log(products[i].genre) 
         }
-    } else if (adventureCheck.checked == true){
-        for (let i = 0; i < products.length; i++){
-            if(products[i].genre == "Adventure"){
-                  const gameImage = document.createElement("img")
-                  gameImage.src = products[i].image
-                  rows.appendChild(gameImage)
-                  console.log("Adventure!")
-              }  
-          }
-    }  
+        
+    } else {console.clear()}
+        
 }
-
-
-
-
-
-
-
-
-
 }
 getGames()
 
