@@ -24,7 +24,7 @@ const getGames = async() => {
 //--------------------------------------------------------------------------------------------------------------
     /*adding elements from the HTML file*/
     const rows = document.getElementById("section-1")
-
+    const gameDisplay = document.createElement("div")
 
 
     // getting checkboxes
@@ -32,14 +32,8 @@ const getGames = async() => {
     const adventureCheck = document.getElementById("adventure")   
     const actionCheck = document.getElementById("action")
     const horrorCheck = document.getElementById("horror")
-
-    
-//-------------------------------------------------------------------------------------------------------------
-    for (let i = 0; i < products.length; i++){
-        const gameImage = document.createElement("img")
-                gameImage.src = products[i].image
-                rows.append(gameImage)
-    }
+    const sortButton = document.getElementById("sortButton")
+    const resetButton = document.getElementById("resetButton")
 
 //-------------------------------------------------------------------------------------------------------------
 
@@ -54,18 +48,97 @@ function sendToProductPage() {
         }    
 
 //---------------------------------------------------------------------------------------------------------------    
+let titles = []
+let gameCount = 0
 
-sportCheck.onclick = function(){ 
-    if (sportCheck.checked == true){
-        products.sort()
-        for (let i = 0; i < products.length; i++){
-           console.log(products[i].genre) 
+for(let i = 0; i < products.length; i++){
+    
+    titles.push(products[i].title)
+    titles.sort()
+    gameCount += 1
+    
+
+    const gameImage = document.createElement("img")
+        gameImage.src = products[i].image
+        rows.appendChild(gameImage)
+}
+console.log(titles)
+
+
+
+
+
+
+
+sortButton.onclick = function(){
+    if(gameCount == 10){
+            for(let i = 0; i < products.length; i++){
+                rows.removeChild(rows.lastElementChild) 
+                gameCount -= 1 
+                console.log(gameCount)
+            }  
+            
+    }
+
+
+
+
+    let sportsCount = 0
+
+    if(sportsCount != 1){
+        if(sportCheck.checked == true){ 
+            for(let i = 0; i < products.length; i++){
+                if(products[i].genre == "Sports"){
+                    const gameImage = document.createElement("img")
+                        gameImage.src= products[i].image
+                        rows.appendChild(gameImage)
+                }
+            }sportsCount = 1
+            gameCount += 3
+            
         }
         
-    } else {console.clear()}
+    }
         
+
+
+
+
+        if(adventureCheck.checked == true){
+            for(let i = 0; i < products.length; i++){
+                if(products[i].genre == "Adventure"){
+                    const gameImage = document.createElement("img")
+                        gameImage.src= products[i].image
+                        rows.appendChild(gameImage)
+                        
+                }
+            }
+            gameCount += 2
+        }
+
+        console.log(gameCount)
+    }
+        
+            
+        
+
+
+    resetButton.onclick = function(){
+        if(gameCount != 0){
+           for(let i = 0; i < products.length; i++){
+               rows.removeChild(rows.lastElementChild)
+               gameCount = 0
+            } 
+        }console.log(gameCount) 
+    }
 }
-}
+
+
+
+
+
+
+
+    
+
 getGames()
-
-
