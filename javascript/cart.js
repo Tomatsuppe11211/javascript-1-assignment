@@ -25,6 +25,9 @@ function message(){
 
 
 function showCart(){
+
+let price = 0
+
 if (cart != null){
       for(let i = 0; i < cart.length; i++){
         //createing the elements for each product in our cart
@@ -38,11 +41,13 @@ if (cart != null){
             gameTitle.innerHTML = cart[i].title
         const gamePrice = document.createElement("p")
             if(cart[i].onSale == true){
-                gamePrice.innerHTML = "Price: " + cart[i].discountedPrice + " $"
-                sum += cart[i].discountedPrice
+                price = cart[i].discountedPrice
+                gamePrice.innerHTML = "Price: " + price + " $"
+                sum += price
             } else {
-                gamePrice.innerHTML = "Price: " + cart[i].price + " $"
-                sum += cart[i].price
+                price = cart[i].price
+                gamePrice.innerHTML = "Price: " + price + " $"
+                sum += price
             }
         const trashIcon = document.createElement("i")
             trashIcon.className = "fa-solid fa-trash"
@@ -64,6 +69,8 @@ if (cart != null){
         trashIcon.onclick = function() {
             console.log(cart[i].title + " removed")
             
+            
+
             delete cart[i]
             cart.sort()
             cart.pop()
@@ -81,14 +88,12 @@ if (cart != null){
             showCart()
             
             if(cart.length == 0){message(); checkoutButton.remove()}
-            
-    }  
-    }
-    
-            
             localStorage.clear("products")
             localStorage.setItem("products", JSON.stringify(cart))
-        
+    }  
+    }
+
+    
 
 }
 
@@ -99,16 +104,22 @@ if (cart != null){
 }
 showCart()
 
-
-
-
 if(cart.length != 0){
+    
+    const totalPrice = document.createElement("p")
+        totalPrice.id = "sum"
+        totalPrice.innerHTML = "Total: " + sum.toFixed(2) + "$"
+    cartSection.appendChild(totalPrice)  
+    
     const checkoutButton = document.createElement("button")
         checkoutButton.id = "checkoutButton"
         checkoutButton.innerHTML = "Purchase"
         cartSection.appendChild(checkoutButton)
 
     checkoutButton.onclick = function(){
+        localStorage.clear("products")
+        cart = []
+        localStorage.setItem("products", JSON.stringify(cart))
         window.location.href = "../checkout/confirmation/index.html"
     }
 
@@ -116,6 +127,6 @@ if(cart.length != 0){
 
     
 
-    console.log(sum.toFixed(2))
+    console.log()
 
 console.log(cart.length)
