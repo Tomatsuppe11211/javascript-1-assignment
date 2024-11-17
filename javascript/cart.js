@@ -6,12 +6,21 @@ let cart = JSON.parse(localStorage.getItem("products"))
 
 let sum = 0;
 
+if(cart != null){
+  for(let i = 0; i < cart.length; i++){
+if(cart[i].onSale == true){sum += cart[i].discountedPrice} else {sum += cart[i].price}
+  }
+}
+
+//-------------------------------------------------------------------------------------------------------
 
 /*Marking where i want to put the users products*/
 const cartSection = document.getElementById("displayCart")
 
 const myCart = document.getElementById("myCart")
 
+const showTotal = document.getElementById("showTotal")
+showTotal.innerHTML = "Total: " + sum.toFixed(2) + " $"
 
 /*Creating a message for the user if no products are detected*/
 function message(){
@@ -29,7 +38,7 @@ function showCart(){
 let price = 0
 
 if (cart != null){
-      for(let i = 0; i < cart.length; i++){
+    for(let i = 0; i < cart.length; i++){
         //createing the elements for each product in our cart
         const list = document.createElement("div")
             list.className = "cartInfo"
@@ -41,13 +50,9 @@ if (cart != null){
             gameTitle.innerHTML = cart[i].title
         const gamePrice = document.createElement("p")
             if(cart[i].onSale == true){
-                price = cart[i].discountedPrice
-                gamePrice.innerHTML = "Price: " + price + " $"
-                sum += price
+                gamePrice.innerHTML = "Price: " + cart[i].discountedPrice + " $"
             } else {
-                price = cart[i].price
-                gamePrice.innerHTML = "Price: " + price + " $"
-                sum += price
+                gamePrice.innerHTML = "Price: " + cart[i].price + " $"
             }
         const trashIcon = document.createElement("i")
             trashIcon.className = "fa-solid fa-trash"
@@ -67,30 +72,34 @@ if (cart != null){
 
         //Removing items from cart
         trashIcon.onclick = function() {
-            console.log(cart[i].title + " removed")
-            
-            
+            sum = 0
 
             delete cart[i]
             cart.sort()
             cart.pop()
 
 
-            for(let i = 0; i <= cart.length; i++){
-                myCart.removeChild(myCart.lastChild)
-            } 
+            for(let i = 0; i < cart.length; i++){
+                if(cart[i].onSale == true){
+                    sum += cart[i].discountedPrice
+                } else {
+                    sum += cart[i].price
+                }  
+            }
             
+            showTotal.innerHTML = "Total: " + sum.toFixed(2) + " $"
             
+
+
+            for(let i = 0; i <= cart.length; i++){myCart.removeChild(myCart.lastChild)} 
             
-            console.log(cart)
-            console.log(cart.length)
 
             showCart()
             
             if(cart.length == 0){message(); checkoutButton.remove()}
             localStorage.clear("products")
             localStorage.setItem("products", JSON.stringify(cart))
-    }  
+        }  
     }
 
     
@@ -105,12 +114,6 @@ if (cart != null){
 showCart()
 
 if(cart.length != 0){
-    
-    const totalPrice = document.createElement("p")
-        totalPrice.id = "sum"
-        totalPrice.innerHTML = "Total: " + sum.toFixed(2) + "$"
-    cartSection.appendChild(totalPrice)  
-    
     const checkoutButton = document.createElement("button")
         checkoutButton.id = "checkoutButton"
         checkoutButton.innerHTML = "Purchase"
@@ -124,9 +127,3 @@ if(cart.length != 0){
     }
 
 } else {message()}
-
-    
-
-    console.log()
-
-console.log(cart.length)

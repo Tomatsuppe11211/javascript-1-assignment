@@ -9,14 +9,7 @@ if(addedProducts != null){
     for(let i = 0; i < addedProducts.length; i++){
         sendProducts.push(addedProducts[i])
     }
-console.log(sendProducts)
 }
-
-
-
-
-
-
 
 
 
@@ -24,7 +17,6 @@ console.log(sendProducts)
 
 /*retrieving items from home page*/ 
 let sent = JSON.parse(sessionStorage.getItem("see"))
-console.log(sent.onSale)
 
 /*Changing the page's title*/
 const pageTitle = document.getElementById("productPage")
@@ -229,12 +221,10 @@ button.onclick = function(){
 
 
     localStorage.setItem("products", JSON.stringify(sendProducts))
-    console.log(sendProducts)
 
     //removing game if clicked
     newButton.onclick = function(){
         sendProducts.pop(sent)
-        console.log(sendProducts)
         newButton.remove()
         gameDiv.appendChild(button)
         price.innerHTML = "Price: " + pay + " $"
